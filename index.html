@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Play|Roboto+Slab|Titillium+Web" rel="stylesheet">
+  <title>Metafyr</title>
+
+</head>
+<body>
+  <style>
+  {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+  }
+
+  #blueparticle {
+    z-index: -1;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+
+  .heading{
+    margin-top: 16%;
+    z-index: 1;
+    color: floralwhite;
+    /*font-family: 'Roboto Mono', monospace;*/
+    font-family: 'Play', sans-serif;
+    text-align: center;
+  }
+
+  .copy-hello{
+    position: absolute;
+    font-family: monospace;
+    color: dimgray;
+    bottom: 0;
+    right: 0;
+  } 
+  .blink-away {
+      margin: 10px 50px; 
+  letter-spacing: 6px; 
+  font-weight: bold;
+}
+
+</style>
+<div class="heading">
+  <h1>Metafyr </h1>
+  <h3 class="blink-away" id="typedtext"></h3>
+  <!-- <h5></h5> -->
+  
+</div>
+
+<video autoplay muted loop id="blueparticle">
+  <source src="./assets/videos/blueparticle.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="copy-hello">
+    <address>
+      &#169; Copyright 2018 Homomorphic Software Pvt Ltd
+      <br> 
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  var aText = new Array(
+    "Gamify your blockchain applications!",
+"meta@metafyr.com"
+);
+var iSpeed = 100; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+ 
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+
+
+  function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("typedtext");
+ 
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+
+
+typewriter();
+</script>
+</body>
+</html>
